@@ -68,6 +68,7 @@ namespace ChuckyNorris.Controllers
                     context.JokeTbs.Add(joke);
                     context.SaveChanges();
                 }
+                return View("Index");
             }
             catch (Exception e)
             {
