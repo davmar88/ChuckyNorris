@@ -19,7 +19,7 @@ public partial class ChuckjokesMdfContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 
-        => optionsBuilder.UseSqlServer("");//Paste your connectionstring here
+        => optionsBuilder.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\StarcAlpha\\source\\repos\\MarietjieDavel\\ChuckyNorris\\Database\\chuckjokes.mdf;Integrated Security=True;Connect Timeout=30");//Paste your connectionstring here
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

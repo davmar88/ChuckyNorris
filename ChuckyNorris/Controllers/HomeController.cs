@@ -37,7 +37,7 @@ namespace ChuckyNorris.Controllers
         //I am adding this method to bypass the ajax call that I tried,
         //It calls the method, but the problem is that the parameters passed is all empty
         [HttpPost]
-        public IActionResult Index(string categories, string createdAt, string iconUrl, string jokeid, string updatedAt, string url, string value)
+        public IActionResult Index(IFormCollection form)
         {
             //the following should write the data into the database
             try
@@ -45,6 +45,14 @@ namespace ChuckyNorris.Controllers
                 using (var context = new ChuckjokesMdfContext())
                 {
                     //passing the data to the JokeTb class to create an object to pass it to the database for insertion
+                    string categories = form["categories"].ToString();
+                    string createdAt = form["createdAt"].ToString();
+                    string iconUrl = form["iconUrl"].ToString();
+                    string jokeid = form["jokeid"].ToString();
+                    string updatedAt = form["updatedAt"].ToString();
+                    string url = form["url"].ToString();
+                    string value = form["value"].ToString();
+
                     var joke = new JokeTb
                     {
                         Categories = categories,
