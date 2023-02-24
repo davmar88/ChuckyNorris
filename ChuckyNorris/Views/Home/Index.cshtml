@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome Marietjie!</h1>
+    <section>
+        <div class="jokecontainer">
+            <div class="joke"><p class="thejoke">Press button for joke generator</p></div>
+            <button class="getjoke">Get a chuck joke</button>
+        @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            //I am doing this to replace the function of the ajax call as I have a problem with
+            //the passing of the data from the json object to the controller
+             <input type="hidden" name="categories" class="categories"/>
+             <input type="hidden" name="createdAt" class="createdAt"/>
+             <input type="hidden" name="iconUrl" class="iconUrl"/>
+             <input type="hidden" name="jokeid" class="jokeid"/>
+             <input type="hidden" name="updatedAt" class="updatedAt"/>
+             <input type="hidden" name="url" class="url"/>
+             <input type="hidden" name="value" class="value"/>
+             <button class="savejoke">Save the joke</button>   
+        }  
+        </div>
+    </section>
+    <section>
+        <div class="normalcontainer">
+            <div class="joke"><h4 class="display-10">Your Favorite jokes to follow below :)</h4></div>
+        </div>
+    </section>
+    @foreach (var jk in ViewData["jokes"] as IList<JokeTb>)
+    {
+        //Fetched data from controller (which comes from database) to display in view
+        <section>
+            <div class="jokecontainer">
+                <div class="joke"><p>@jk.Value</p></div>
+            </div>
+        </section>
+    }
+    
+</div>

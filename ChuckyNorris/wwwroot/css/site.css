@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@1,500&display=swap');
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+html {
+  font-size: 10px;
+  font-family: Montserrat,sans-serif;
+}
+
+body {
+    background-color:rgb(37,38,39);
+    color:white;
+}
+section {
+    min-height: 100%;
+    width: 100%;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.jokecontainer {
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: rgb(51,55,59);
+    border-radius: 8px;
+    padding: 3rem;
+    text-align:center;
+}
+
+.jokecontainer p{
+    font-size: 2rem;
+    font-weight: 300;
+    line-height:3rem;
+    text-align:justify;
+}
+.normalcontainer {
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: rgb(37,38,39);
+    padding: 3rem;
+    text-align: center;
+}
+button {
+    margin-top: 2rem;
+    width: fit-content;
+    padding: 2rem;
+    background-color: rgb(25,28,29);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+
+
