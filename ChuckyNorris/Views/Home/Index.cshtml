@@ -8,19 +8,21 @@
         <div class="jokecontainer">
             <div class="joke"><p class="thejoke">Press button for joke generator</p></div>
             <button class="getjoke">Get a chuck joke</button>
-        @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
-        {
-            //I am doing this to replace the function of the ajax call as I have a problem with
-            //the passing of the data from the json object to the controller
-             <input type="hidden" name="categories" class="categories"/>
-             <input type="hidden" name="createdAt" class="createdAt"/>
-             <input type="hidden" name="iconUrl" class="iconUrl"/>
-             <input type="hidden" name="jokeid" class="jokeid"/>
-             <input type="hidden" name="updatedAt" class="updatedAt"/>
-             <input type="hidden" name="url" class="url"/>
-             <input type="hidden" name="value" class="value"/>
-             <button class="savejoke">Save the joke</button>   
-        }  
+            @using (Html.BeginForm("Index","Home", FormMethod.Post))
+            {
+                //I am doing this to replace the function of the ajax call as I have a problem with
+                //the passing of the data from the json object to the controller
+                
+                 
+                 <input type="hidden" name="categories" id="categories"/>
+                 <input type="hidden" name="createdAt" id="createdAt"/>
+                 <input type="hidden" name="iconUrl" id="iconUrl"/>
+                 <input type="hidden" name="jokeid" id="jokeid"/>
+                 <input type="hidden" name="updatedAt" id="updatedAt"/>
+                 <input type="hidden" name="url" id="url"/>
+                 <input type="hidden" name="value" id="value"/>
+                 <button class="savejoke">Save the joke</button>   
+            }  
         </div>
     </section>
     <section>

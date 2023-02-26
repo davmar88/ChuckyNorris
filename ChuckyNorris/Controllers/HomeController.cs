@@ -42,18 +42,20 @@ namespace ChuckyNorris.Controllers
             //the following should write the data into the database
             try
             {
+                string categories = form["categories"].ToString();
+                string createdAt = form["createdAt"].ToString();
+                string iconUrl = form["iconUrl"].ToString();
+                string jokeid = form["jokeid"].ToString();
+                string updatedAt = form["updatedAt"].ToString();
+                string url = form["url"].ToString();
+                string value = form["value"].ToString();
+
                 using (var context = new ChuckjokesMdfContext())
                 {
                     //passing the data to the JokeTb class to create an object to pass it to the database for insertion
-                    string categories = form["categories"].ToString();
-                    string createdAt = form["createdAt"].ToString();
-                    string iconUrl = form["iconUrl"].ToString();
-                    string jokeid = form["jokeid"].ToString();
-                    string updatedAt = form["updatedAt"].ToString();
-                    string url = form["url"].ToString();
-                    string value = form["value"].ToString();
 
-                    var joke = new JokeTb
+
+                    var joketb = new JokeTb
                     {
                         Categories = categories,
                         CreatedAt = createdAt,
@@ -65,8 +67,16 @@ namespace ChuckyNorris.Controllers
                         Url = url,
                         Value = value
                     };
-                    context.JokeTbs.Add(joke);
+                    context.JokeTbs.Add(joketb);
                     context.SaveChanges();
+
+                    var jokes = context.JokeTbs.ToList();
+                    IList<JokeTb> jokeList = new List<JokeTb>();
+                    foreach (var joke in jokes)
+                    {
+                        jokeList.Add(new JokeTb() { Value = joke.Value });
+                    }
+                    ViewData["jokes"] = jokeList;
                 }
                 return View("Index");
             }

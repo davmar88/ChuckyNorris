@@ -3,13 +3,7 @@
 const getjokebutton = document.querySelector('.jokecontainer .getjoke');
 //const savejokebutton = document.querySelector('.jokecontainer .savejoke');
 const jokeText = document.querySelector('.jokecontainer .thejoke');
-const jokecategories = document.querySelector('.jokecontainer .categories');
-const jokecreatedAt = document.querySelector('.jokecontainer .createdAt');
-const jokeiconUrl = document.querySelector('.jokecontainer .iconUrl');
-const jokeid = document.querySelector('.jokecontainer .jokeid');
-const jokeupdatedAt = document.querySelector('.jokecontainer .updatedAt');
-const jokeurl = document.querySelector('.jokecontainer .url');
-const jokevalue = document.querySelector('.jokecontainer .thejoke');
+
 //we add event listener as onclick to the button so we can manupilate the paragraph that will be the joke display.
 //We will call the function getJoke and saveJoke when the buttons are clicked
 getjokebutton.addEventListener('click', getJoke);
@@ -35,13 +29,15 @@ async function getJoke() {
 
     //we add the jokeObj values now to the HTML elements
     jokeText.innerHTML = jokeObj.value;
-    jokecategories.innerHTML = jokeObj.categories;
-    jokecreatedAt.innerHTML = jokeObj.created_at;
-    jokeiconUrl.innerHTML = jokeObj.icon_url;
-    jokeid.innerHTML = jokeObj.id;
-    jokeupdatedAt.innerHTML = jokeObj.updated_at;
-    jokeurl.innerHTML = jokeObj.url;
-    jokevalue.innerHTML = jokeObj.value;
+    
+    
+    $('#categories').val(jokeObj.categories);
+    $('#createdAt').val(jokeObj.created_at);
+    $('#iconUrl').val(jokeObj.icon_url);
+    $('#jokeid').val(jokeObj.id);
+    $('#updatedAt').val(jokeObj.updated_at);
+    $('#url').val(jokeObj.url);
+    $('#value').val(jokeObj.value);
     
 }
 
